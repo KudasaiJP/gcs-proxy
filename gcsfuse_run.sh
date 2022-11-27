@@ -4,8 +4,10 @@ set -eo pipefail
 mkdir -p $MNT_DIR
 
 echo "Mounting GCS Fuse."
-sudo -u www-data /root/go/bin/gcsfuse --debug_gcs --debug_fuse $BUCKET $MNT_DIR 
+/root/go/bin/gcsfuse --debug_gcs --debug_fuse $BUCKET $MNT_DIR 
 echo "Mounting completed."
+
+ls -la $MNT_DIR
 
 # exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app &
 # 
