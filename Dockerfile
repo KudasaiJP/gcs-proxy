@@ -5,7 +5,7 @@ RUN set -xe && \
     go install github.com/googlecloudplatform/gcsfuse@latest && \
     apk del .build-deps
 
-ENV MNT_DIR /var/www/html
+ENV MNT_DIR /mnt/gcs
 
 ENV APP_HOME /app
 WORKDIR $APP_HOME
