@@ -15,6 +15,11 @@ WORKDIR $APP_HOME
 COPY . ./
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
+RUN mkdir -p $MNT_DIR
+RUN chown nginx:nginx $MNT_DIR
+
 RUN chmod +x /app/gcsfuse_run.sh
+
+USER nginx
 
 CMD ["/app/gcsfuse_run.sh"]
