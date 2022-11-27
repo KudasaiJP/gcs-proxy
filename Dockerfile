@@ -1,9 +1,12 @@
 FROM nginx:1.23.2-alpine
 
 RUN set -xe && \
+    apk add sudo && \
     apk add --no-cache --virtual .build-deps go && \
     go install github.com/googlecloudplatform/gcsfuse@latest && \
     apk del .build-deps
+
+RUN mv /root/go/bin/gcsfuse /bin/gcsfuse
 
 ENV MNT_DIR /mnt/gcs
 
