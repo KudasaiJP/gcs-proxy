@@ -8,8 +8,6 @@ ls -la $MNT_DIR
 
 echo $GOOGLE_APPLICATION_CREDENTIALS
 
-ls -la /key.json
-
 echo "Mounting GCS Fuse."
 /bin/gcsfuse --debug_gcs --debug_fuse $BUCKET $MNT_DIR 
 echo "Mounting completed."
