@@ -1,9 +1,11 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 set -eo pipefail
 
+ls -la /app
+ls -la $MNT_DIR
 
 echo "Mounting GCS Fuse."
-/bin/gcsfuse --debug_gcs --debug_fuse $BUCKET $MNT_DIR 
+/bin/gcsfuse --foreground --debug_gcs --debug_fuse --debug_fs $BUCKET $MNT_DIR 
 echo "Mounting completed."
 
 ls -la $MNT_DIR
