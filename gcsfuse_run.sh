@@ -11,6 +11,8 @@ echo "Mounting GCS Fuse."
 /bin/gcsfuse -o allow_other --debug_gcs --debug_fuse $BUCKET $MNT_DIR 
 echo "Mounting completed."
 
+ls -la $MNT_DIR
+
 mkdir -p $MNT_DIR/about
 mkdir -p $MNT_DIR/assets
 mkdir -p $MNT_DIR/stickers
